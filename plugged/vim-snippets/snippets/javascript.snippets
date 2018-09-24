@@ -1,0 +1,104 @@
+extends html
+
+snippet co
+	console.log(${1:Hello})
+snippet for
+	for (let i = 0; i < ${1:arrayName}.length; i++) {
+		console.log($1[i])
+	}
+snippet for-
+	for (let i = ${1:arrayName}.length; i >= 0; i--) {
+		console.log($1[i])
+	}
+snippet pre
+	import { h, Component, options } from 'preact';
+	import { Link } from 'preact-router/match';
+	import { connect } from 'preact-redux'
+	import style from './style';
+
+	@connect(reducer, actions)
+	class ${1:ComponentName} extends Component {
+    	constructor(props) {
+    	    super(props)
+    	    	this.state = {}
+			}
+		}
+
+		componentDidMount() {
+    	}
+
+		render() {
+			return (
+				<div>
+				</div>
+			)
+		}
+	}
+
+	export default $1
+snippet rclass
+	import React, {Component} from 'react'
+	class ${1:ComponentName} extends Component {
+  		constructor(props) {
+    		super(props)
+    		this.state = {}
+  		}
+
+  		render() {
+    		return (
+      			<div></div>
+    		)
+  		}
+	}
+	export default $1
+snippet class
+	class Rectangle {
+		constructor(height, width) {
+			this.height = height
+			this.width = width
+		}
+	}
+snippet jto
+	JSON.parse(${1:json})
+snippet otj
+	JSON.stringify(${1:obj})
+snippet uuid
+	/**
+	* UUID Generator
+	* @returns {string} UUID(550e8400-e29b-41d4-a716-446655440000)
+	*/
+	const uuid = () =>  {
+		let uuid = "";
+		for (let i = 0; i < 32; i++) {
+			const random = Math.random() * 16 | 0
+			if (i === 8 || i === 12 || i === 16 || i === 20) {
+				uuid += "-"
+			}
+			uuid += (i === 12 ? 4 : (i === 16 ? (random & 3 | 8) : random)).toString(16)
+		}
+		return uuid
+	}
+snippet get
+	let request = new XMLHttpRequest()
+	request.open('GET', '${1:url}', true)
+
+	request.onload = function() {
+		if (request.status >= 200 && request.status < 400) {
+	    	let data = JSON.parse(request.responseText)
+	  	} else {
+	    	// We reached our target server, but it returned an error
+	  }
+	}
+
+	request.onerror = function() {
+		// Error Handling
+	}
+
+	request.send()
+snippet id
+	document.getElementById(${1:idName})
+snippet classes
+	document.getElementsByClassName(${1:className})
+snippet tags
+	document.getElementsByTagName(${1:tagName})
+	document.getElementsByClassName(${1:className})
